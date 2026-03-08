@@ -1,0 +1,20 @@
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de prueba locales (Opcional, pero recomendado)
+*.pdf
+*.docx
+# Excluir imágenes de prueba, pero mantener la carpeta de diseño
+*.jpg
+*.jpeg
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
