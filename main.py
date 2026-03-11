@@ -109,9 +109,11 @@ def main():
 
     # 1. Cargar y mostrar el logo encima
     logo_path = os.path.join(ASSETS_DIR, "icon.png")
+    shield_path = os.path.join(ASSETS_DIR, "shield.png")
+
     try:
-        if os.path.exists(logo_path):
-            logo_pil = Image.open(logo_path).resize((80, 80), Image.Resampling.LANCZOS)
+        if os.path.exists(shield_path):
+            logo_pil = Image.open(shield_path).resize((80, 80), Image.Resampling.LANCZOS)
             logo_tk = ImageTk.PhotoImage(logo_pil)
             
             # Usamos tk.Label para evitar bordes nativos, igual que en los botones
@@ -126,7 +128,7 @@ def main():
     lbl_title = ttk.Label(header_frame, text="Universal PDF Suite", font=("Arial", 24, "bold"))
     lbl_title.pack()
 
-    logo_path = os.path.join(ASSETS_DIR, "icon.png")
+    #logo_path = os.path.join(ASSETS_DIR, "icon.png")
 
     # Eliminamos el texto "Universal PDF Suite" ya que el logo grande lo representa bien,
     # pero puedes descomentar las siguientes líneas si prefieres mantenerlo:
@@ -151,7 +153,7 @@ def main():
                   fila=2, columna=1)
 
     crear_tarjeta(main_frame, "btn_docx.png", 
-                  handle_docx_to_pdf, 
+                  lambda: handle_docx_to_pdf(root), 
                   fila=3, columna=0, colspan=2)
 
     # ================= LIMPIEZA Y CIERRE =================

@@ -25,7 +25,7 @@ def handle_merge_pdfs(pdf_list):
         except Exception as e:
             messagebox.showerror("Error", f"Ocurrió un error al unir los archivos:\n{e}")
 
-def handle_docx_to_pdf():
+def handle_docx_to_pdf(root):
     # 1. Usar el explorador nativo para ABRIR
     docx_path = native_open_file(
         title="Selecciona el archivo Word", 
@@ -45,7 +45,7 @@ def handle_docx_to_pdf():
     pdf_path = native_save_file(
         title="Guardar PDF como...", 
         initialdir=get_last_dir(),
-        defaultextension=".pdf"
+        defaultextension=".pdf",
     )
     if not pdf_path: return
     set_last_dir(pdf_path) 
@@ -61,7 +61,7 @@ def handle_docx_to_pdf():
     def al_fallar(error):
         messagebox.showerror("Error", f"Fallo al convertir el documento:\n{error}")
 
-    root = tk._default_root
+    #root = tk._default_root
     ejecutar_en_hilo(
         parent=root,
         tarea_func=tarea_pesada,
